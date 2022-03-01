@@ -3,7 +3,7 @@ Attend
 ​
 
 ## Description
-Attend is an application where you can easily save and prioritize any type of events you want to attend. It’s your events wishlist and collection of upcoming events that will help you organize your weekends, months and year.
+Attend is an app where you can easily save and prioritize any type of events you want to attend. It’s your events wishlist and collection of upcoming events that will help you organize your weekends, months and year.
 
 ​
 
@@ -23,9 +23,9 @@ Attend is an application where you can easily save and prioritize any type of ev
 Event model
 ```
 {
-    name: String, 
+    title: String, 
     img: String,
-    category: Enum[Festival, Business, Sports, Health, Cultural)
+    category: Enum[Festival, Business, Sports, Health, Cultural]
     date: Date;
     city: String,
     ticketPrice: Number, 
