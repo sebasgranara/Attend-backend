@@ -66,7 +66,9 @@ User model
 | Event edit      | POST   | /events/:eventid/edit         | Add events new information                             |                      | /events/eventid  
 | Event delete    | POST   | /events/:eventid/delete       | Delete events from user's collection                   |                      | /events  
 
-
+## Backlog
+ Filtrar eventos por: hoy, este mes
+ Armar un calendario mensual donde aparecen los eventos del mes
 
 
 This repository is the REST API for the [frontend repository XXX](link). It allows users to...
