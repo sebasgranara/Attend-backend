@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const config = require('../config');
+const configuration = require('../config');
 
 const { Schema, model } = mongoose;
 
@@ -13,12 +13,12 @@ const eventSchema = new Schema({
     ref: 'User',
   },
   title: String,
-  category: { type: String, enum: config.category },
+  category: { type: String, enum: configuration.category },
   date: Date,
   city: String,
   ticketPrice: Number,
-  priority: { type: String, enum: config.priority },
-  ticketPurchased: { type: String, enum: config.ticketPurchased },
+  priority: { type: String, enum: configuration.priority },
+  ticketPurchased: { type: String, enum: configuration.ticketPurchased },
   eventHour: Number,
   organizedBy: String,
   notes: String,
