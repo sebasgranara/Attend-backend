@@ -70,7 +70,7 @@ User model
  - Filter events by: Today's events, Weekend events, this month events
  - Montlhy calendar with all the events title from the month
  - count the number of events
- - Some label for events that already ocurred and are still at you collection or turn into a light gray gradient
+ - Some label for events that already ocurred and are still at you collection or turn into a light gray gradient or mark it as "attended"
 
 
 This repository is the REST API for the [frontend repository XXX](link). It allows users to...
