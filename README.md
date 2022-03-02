@@ -67,8 +67,9 @@ User model
 | Event delete    | POST   | /events/:eventid/delete       | Delete events from user's collection                   |                      | /events  
 
 ## Backlog
- Filtrar eventos por: hoy, este mes
- Armar un calendario mensual donde aparecen los eventos del mes
+ - Filter events by: Today's events, Weekend events, this month events
+ - Montlhy calendar with all the events title from the month
+ - count the number of events
 
 
 This repository is the REST API for the [frontend repository XXX](link). It allows users to...
