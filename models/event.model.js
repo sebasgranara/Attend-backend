@@ -14,7 +14,7 @@ const eventSchema = new Schema({
   },
   title: String,
   category: { type: String, enum: configuration.category },
-  attended:Boolean,
+  attended: Boolean,
   date: Date,
   city: String,
   ticketPrice: Number,

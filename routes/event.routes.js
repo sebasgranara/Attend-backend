@@ -15,7 +15,7 @@ router.post('/events', (req, res, next) => {
   if (!date) {
     date = new Date();
   }
-  Event.create({ userId: _id, title, category, date, city, ticketPrice, ticketPurchased, priority, eventHour, organizedBy, notes })
+  Event.create({ userId: _id, title, category, date, city, ticketPrice, ticketPurchased, priority, eventHour, organizedBy, notes, attended })
     .then(response => res.json(response))
     .catch(err => res.json(err));
 });

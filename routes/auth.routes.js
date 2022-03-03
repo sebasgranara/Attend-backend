@@ -87,7 +87,7 @@ router.post('/login', (req, res, next) => {
       }
 
       // Compare the provided password with the one saved in the database
-      const passwordCorrect = bcrypt.compareSync(password, foundUser.hashedPassword);
+      const passwordCorrect = bcrypt.compareSync(password, foundUser.password);
 
       if (passwordCorrect) {
         // Deconstruct the user object to omit the password
@@ -108,7 +108,9 @@ router.post('/login', (req, res, next) => {
         res.status(401).json({ message: 'Unable to authenticate the user' });
       }
     })
-    .catch(err => res.status(500).json({ message: 'Internal Server Error' }));
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ message: 'Internal Server Error' })});
 });
 
 // GET  /auth/verify
