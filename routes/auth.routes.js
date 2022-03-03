@@ -48,7 +48,7 @@ router.post('/signup', (req, res, next) => {
 
       // Create the new user in the database
       // We return a pending promise, which allows us to chain another `then`
-      return User.create({ email, password: hashedPassword, name });
+      return User.create({ email, hashedPassword, name });
     })
     .then(createdUser => {
       // Deconstruct the newly created user object to omit the password
@@ -87,7 +87,7 @@ router.post('/login', (req, res, next) => {
       }
 
       // Compare the provided password with the one saved in the database
-      const passwordCorrect = bcrypt.compareSync(password, foundUser.password);
+      const passwordCorrect = bcrypt.compareSync(password, foundUser.hashedPassword);
 
       if (passwordCorrect) {
         // Deconstruct the user object to omit the password

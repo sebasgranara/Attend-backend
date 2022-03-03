@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const configuration = require('../configuration')
+const configuration = require('../configuration');
 
 const { Schema, model } = mongoose;
 
@@ -14,6 +14,7 @@ const eventSchema = new Schema({
   },
   title: String,
   category: { type: String, enum: configuration.category },
+  attended:Boolean,
   date: Date,
   city: String,
   ticketPrice: Number,
@@ -25,4 +26,3 @@ const eventSchema = new Schema({
 });
 
 module.exports = model('Event', eventSchema);
-
