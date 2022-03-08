@@ -1,12 +1,13 @@
 const router = require('express').Router();
 const mongoose = require('mongoose');
+const { isAuthenticated } = require('../middleware/jwt.middleware');
 
 const Event = require('../models/event.model');
 
 // Creates a new event
-router.post('/events', (req, res, next) => {
+router.post('/events', isAuthenticated, (req, res, next) => {
   const { _id } = req.payload;
-  const { title, category, city, ticketPrice, ticketPurchased, priority, eventHour, organizedBy, notes, attended } = req.body;
+  const { title, category, city, ticketPrice, ticketPurchased, priority, eventHour, notes, attended } = req.body;
 
   let date = req.body.date;
   if (!title) {
@@ -15,13 +16,13 @@ router.post('/events', (req, res, next) => {
   if (!date) {
     date = new Date();
   }
-  Event.create({ userId: _id, title, category, date, city, ticketPrice, ticketPurchased, priority, eventHour, organizedBy, notes, attended })
+  Event.create({ userId: _id, title, category, date, city, ticketPrice, ticketPurchased, priority, eventHour, notes, attended })
     .then(response => res.json(response))
     .catch(err => res.json(err));
 });
 
 // Retrieves all events
-router.get('/events', (req, res, next) => {
+router.get('/events', isAuthenticated,  (req, res, next) => {
   const { _id } = req.payload;
   Event.find({ userId: _id })
     .sort({ date: -1 })
@@ -30,7 +31,7 @@ router.get('/events', (req, res, next) => {
 });
 
 // Retrieves a specific event by id
-router.get('/events/:eventId', (req, res, next) => {
+router.get('/events/:eventId', isAuthenticated, (req, res, next) => {
   const { eventId } = req.params;
   const { _id } = req.payload;
   if (!mongoose.Types.ObjectId.isValid(eventId)) {
@@ -43,7 +44,7 @@ router.get('/events/:eventId', (req, res, next) => {
 });
 
 // Updates a specific event by id {attended:true}
-router.put('/events/:eventId', (req, res, next) => {
+router.put('/events/:eventId', isAuthenticated, (req, res, next) => {
   const { eventId } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(eventId)) {
@@ -57,7 +58,7 @@ router.put('/events/:eventId', (req, res, next) => {
 });
 
 // Deletes a specific event by id
-router.delete('/events/:eventId', (req, res, next) => {
+router.delete('/events/:eventId', isAuthenticated, (req, res, next) => {
   const { eventId } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(eventId)) {
