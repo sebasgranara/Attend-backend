@@ -25,7 +25,7 @@ router.post('/events', isAuthenticated, (req, res, next) => {
 router.get('/events', isAuthenticated,  (req, res, next) => {
   const { _id } = req.payload;
   Event.find({ userId: _id })
-    .sort({ date: -1 })
+    .sort({ date: +1 })
     .then(allEvents => res.json(allEvents))
     .catch(err => res.json(err));
 });
