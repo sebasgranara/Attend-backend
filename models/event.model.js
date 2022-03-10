@@ -21,7 +21,7 @@ const eventSchema = new Schema({
   ticketPrice: Number,
   priority: { type: String, enum: configuration.priority },
   ticketPurchased: { type: String, enum: configuration.ticketPurchased },
-  eventHour: Number,
+  // eventHour: Date,
   // organizedBy: String,
   notes: String,
 });
