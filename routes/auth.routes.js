@@ -1,7 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const User = require('../models/User.model');
+const User = require('../models/user.model');
 const { isAuthenticated } = require('../middleware/jwt.middleware');
 
 const router = express.Router();
@@ -108,7 +108,9 @@ router.post('/login', (req, res, next) => {
         res.status(401).json({ message: 'Unable to authenticate the user' });
       }
     })
-    .catch(err => res.status(500).json({ message: 'Internal Server Error' }));
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ message: 'Internal Server Error' })});
 });
 
 // GET  /auth/verify
