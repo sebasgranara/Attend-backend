@@ -25,12 +25,12 @@ Event model
 {
     title: String, 
     img: String,
-    category: Enum[Festival, Business, Sports, Health, Cultural]
+    category: Enum[Festival, Business, Sports, Wellness, Cultural, Personal, Other]
     date: Date;
     city: String,
     ticketPrice: Number, 
     ticketPurchased: Enum[Yes, No]
-    priority: Enum[Top Priority, Must Go, Maybe, If Nothing Better To Do] 
+    priority: Enum[High, Medium, Low] 
     eventHour: Number;
     organizedBy: String,
     notes: String, 
@@ -73,7 +73,7 @@ User model
  - Some label for events that already ocurred and are still at you collection or turn into a light gray gradient or mark it as "attended"
 
 
-This repository is the REST API for the [frontend repository XXX](link). It allows users to...
+This repository is the REST API for the [frontend repository](https://github.com/sebasgranara/Attend-frontend/). 
 
 ### setup .env
 
@@ -98,6 +98,6 @@ npm run start
 
 ## Links
 
-- [Slides]()
-- [Frontend repository]()
-- [Deployed version]()
+- [Slides](https://slides.com/sebastiangranara/desk/fullscreen)
+- [Frontend repository](https://github.com/sebasgranara/Attend-frontend)
+- [Deployed version](https://blissful-cray-52732e.netlify.app)
